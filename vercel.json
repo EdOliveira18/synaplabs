@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/calculadora",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/calculadora/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
