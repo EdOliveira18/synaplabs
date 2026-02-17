@@ -7,160 +7,129 @@
   <meta name="description" content="Simule o faturamento com o Sistema Royal Mind. Sliders 0–100%, cálculos corretos e resultados em tempo real." />
   <style>
     :root{
-      --green-50:#fff8e1;
-      --green-300:#e6c200;
-      --green-600:#c5a000;
-      --green-700:#8c6b00;
-      --text:#0a0a0a;
-      --muted:#6b7280;
-      --border:#e5e7eb;
-      --bg:#fafafa;
-      --card:#fff;
-      --shadow:0 1px 2px rgba(0,0,0,.04);
-      --radius:16px;
-    }
+      /* Troca do VERDE para DOURADO ROYAL (mantendo os mesmos nomes pra não quebrar nada) */
+      --green-50:#fff8e1;   /* dourado bem claro */
+      --green-300:#e6c200;  /* dourado médio */
+      --green-600:#c5a000;  /* dourado principal */
+      --green-700:#8c6b00;  /* dourado escuro premium */
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-      background:var(--bg);
-      color:var(--text)
+      --text:#0a0a0a; --muted:#6b7280; --border:#e5e7eb; --bg:#fafafa; --card:#fff;
+      --shadow:0 1px 2px rgba(0,0,0,.04); --radius:16px;
     }
-
+    *{box-sizing:border-box} html,body{height:100%} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--text)}
     .container{max-width:1120px;margin:0 auto;padding:28px 16px}
-
-    header h1{
-      margin:0 0 6px;
-      font-size:28px;
-      line-height:1.2;
-      color:var(--green-700)
-    }
-
+    header h1{margin:0 0 6px;font-size:28px;line-height:1.2;color:var(--green-700)}
     .lead{margin:0 0 22px;color:#374151}
-
-    .grid{display:grid;grid-template-columns:1fr;gap:24px}
-    @media(min-width:1024px){
-      .grid{grid-template-columns:1fr 1fr}
-    }
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:20px;
-      box-shadow:var(--shadow)
-    }
-
-    .label{
-      font-weight:800;
-      color:var(--green-700);
-      margin-bottom:4px
-    }
-
-    .hint{font-size:12px;color:var(--muted);margin-top:2px}
-
-    .row{display:flex;align-items:center;gap:12px;margin-top:10px}
-    .range{flex:1}
-
-    input[type=range]{
-      width:100%;
-      accent-color:var(--green-600)
-    }
-
-    .mini{
-      width:110px;
-      max-width:30vw;
-      padding:8px;
-      border:1px solid var(--border);
-      border-radius:10px;
-      background:#fff;
-      text-align:right;
-      font-size:13px
-    }
-
-    .minmax{
-      margin-top:6px;
-      display:flex;
-      justify-content:space-between;
-      font-size:11px;
-      color:#9ca3af
-    }
-
-    .results-head{
-      display:inline-block;
-      border:2px dashed var(--green-300);
-      background:var(--green-50);
-      color:var(--green-700);
-      padding:6px 10px;
-      border-radius:10px;
-      font-size:13px;
-      font-weight:800;
-      margin-bottom:12px
-    }
-
-    .kpis{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px
-    }
-
-    @media(min-width:640px){
-      .kpis{grid-template-columns:1fr 1fr}
-    }
-
-    .kpi{
-      background: linear-gradient(135deg,#8c6b00,#c5a000);
-      color:#fff;
-      border-radius:14px;
-      padding:18px
-    }
-
-    .kpi .k{
-      font-size:13px;
-      opacity:.95
-    }
-
-    .kpi .v{
-      font-size:28px;
-      font-weight:900;
-      line-height:1.2;
-      letter-spacing:-0.3px
-    }
-
-    .kpi .hint{color:#fff8dc}
-
-    .list{color:#374151;font-size:14px}
-
-    .cta{
-      display:inline-flex;
-      justify-content:center;
-      align-items:center;
-      width:100%;
-      padding:14px 18px;
-      background: linear-gradient(135deg,#c5a000,#8c6b00);
-      color:#fff;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:800;
-      transition:0.2s ease;
-    }
-
-    .cta:hover{
-      opacity:0.9;
-      transform:translateY(-2px)
-    }
-
-    .footer{
-      margin-top:28px;
-      font-size:12px;
-      color:var(--muted);
-      text-align:center
-    }
+    .grid{display:grid;grid-template-columns:1fr;gap:24px} @media(min-width:1024px){.grid{grid-template-columns:1fr 1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .label{font-weight:800;color:var(--green-700);margin-bottom:4px} .hint{font-size:12px;color:var(--muted);margin-top:2px}
+    .row{display:flex;align-items:center;gap:12px;margin-top:10px} .range{flex:1} input[type=range]{width:100%;accent-color:var(--green-600)}
+    .mini{width:110px;max-width:30vw;padding:8px;border:1px solid var(--border);border-radius:10px;background:#fff;text-align:right;font-size:13px}
+    .minmax{margin-top:6px;display:flex;justify-content:space-between;font-size:11px;color:#9ca3af}
+    .results-head{display:inline-block;border:2px dashed var(--green-300);background:var(--green-50);color:var(--green-700);padding:6px 10px;border-radius:10px;font-size:13px;font-weight:800;margin-bottom:12px}
+    .kpis{display:grid;grid-template-columns:1fr;gap:12px} @media(min-width:640px){.kpis{grid-template-columns:1fr 1fr}}
+    .kpi{background:var(--green-700);color:#fff;border-radius:14px;padding:18px} .kpi .k{font-size:13px;opacity:.95} .kpi .v{font-size:28px;font-weight:900;line-height:1.2;letter-spacing:-0.3px} .kpi .hint{color:#fff3b0}
+    .list{color:#374151;font-size:14px} .cta{display:inline-flex;justify-content:center;align-items:center;width:100%;padding:14px 18px;background:var(--green-600);color:#fff;border-radius:12px;text-decoration:none;font-weight:800}
+    .cta:hover{background:#b08f00} .footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
   </style>
 </head>
 <body>
-  <!-- RESTANTE DO HTML E JS PERMANECE IGUAL AO SEU ORIGINAL -->
+  <div class="container">
+    <header>
+      <h1>Royal Mind – Calculadora de Faturamento</h1>
+      <p class="lead">Descubra quanto você pode faturar após implementar o Sistema Royal Mind com aceleração comercial.</p>
+    </header>
+    <main class="grid" role="main">
+      <section class="controls">
+        <div class="card">
+          <div class="label">Investimento por Mês (R$)</div>
+          <div class="row">
+            <input id="display-invest" class="mini" readonly>
+            <input id="range-invest" class="range" type="range" min="0" max="200000" step="1000">
+            <input id="num-invest" class="mini" type="number" min="0" max="200000" step="1000">
+          </div>
+          <div class="minmax"><span>0</span><span>200000</span></div>
+        </div>
+        <div class="card">
+          <div class="label">Preço por Lead (R$)</div>
+          <div class="row">
+            <input id="display-cpl" class="mini" readonly>
+            <input id="range-cpl" class="range" type="range" min="1" max="500" step="1">
+            <input id="num-cpl" class="mini" type="number" min="1" max="500" step="1">
+          </div>
+          <div class="minmax"><span>1</span><span>500</span></div>
+        </div>
+        <div class="card">
+          <div class="label">Taxa de Agendamento (%)</div>
+          <div class="hint">5% para ruins, 10% regulares, 15% boas, 20% excelentes</div>
+          <div class="row">
+            <input id="display-schedule" class="mini" readonly>
+            <input id="range-schedule" class="range" type="range" min="0" max="100" step="1">
+            <input id="num-schedule" class="mini" type="number" min="0" max="100" step="1">
+          </div>
+          <div class="minmax"><span>0</span><span>100</span></div>
+        </div>
+        <div class="card">
+          <div class="label">Taxa de Comparecimento (%)</div>
+          <div class="hint">Média 50% a 85%</div>
+          <div class="row">
+            <input id="display-show" class="mini" readonly>
+            <input id="range-show" class="range" type="range" min="0" max="100" step="1">
+            <input id="num-show" class="mini" type="number" min="0" max="100" step="1">
+          </div>
+          <div class="minmax"><span>0</span><span>100</span></div>
+        </div>
+        <div class="card">
+          <div class="label">Taxa de Conversão (%)</div>
+          <div class="hint">Média 10% a 30%</div>
+          <div class="row">
+            <input id="display-close" class="mini" readonly>
+            <input id="range-close" class="range" type="range" min="0" max="100" step="1">
+            <input id="num-close" class="mini" type="number" min="0" max="100" step="1">
+          </div>
+          <div class="minmax"><span>0</span><span>100</span></div>
+        </div>
+        <div class="card">
+          <div class="label">Ticket Médio (R$)</div>
+          <div class="row">
+            <input id="display-ticket" class="mini" readonly>
+            <input id="range-ticket" class="range" type="range" min="50" max="500000" step="10">
+            <input id="num-ticket" class="mini" type="number" min="50" max="500000" step="10">
+          </div>
+          <div class="minmax"><span>50</span><span>500000</span></div>
+        </div>
+      </section>
+      <section class="results">
+        <div class="card">
+          <div class="results-head">Resultados (Mensal):</div>
+          <div class="kpis">
+            <div class="kpi"><div class="k">Faturamento</div><div id="kpi-revenue" class="v">R$ 0,00</div></div>
+            <div class="kpi"><div class="k">Número de Vendas</div><div id="kpi-sales" class="v">0</div></div>
+            <div class="kpi"><div class="k">Custo por Call Realizada</div><div id="kpi-cpcall" class="v">R$ 0,00</div></div>
+            <div class="kpi"><div class="k">CAC</div><div id="kpi-cac" class="v">R$ 0,00</div></div>
+            <div class="kpi"><div class="k">ROAS</div><div id="kpi-roas" class="v">0</div></div>
+            <div class="kpi"><div class="k">Número de SDRs</div><div id="kpi-sdrs" class="v">0</div><div class="hint">750 leads/mês por SDR</div></div>
+            <div class="kpi"><div class="k">Número de Closers</div><div id="kpi-closers" class="v">0</div><div class="hint">90 atendimentos/mês por Closer</div></div>
+          </div>
+        </div>
+        <div class="card list">
+          <h3 style="margin:0 0 8px;font-size:16px;font-weight:800">Bastidores do cálculo</h3>
+          <ul id="explain" style="margin:0 0 6px 18px; padding:0; list-style:disc"></ul>
+        </div>
+        <div class="card">
+          <a class="cta" href="https://inlead.digital/diagnostico-J8HJSx/?" target="_blank" rel="noreferrer">QUERO CONHECER MAIS DA ROYAL MIND</a>
+        </div>
+      </section>
+    </main>
+    <p class="footer">© Royal Mind</p>
+  </div>
+  <script>
+    const state = { investimento: 7000, precoPorLead: 85, taxaAgendamento: 60, taxaComparecimento: 50, taxaConversao: 50, ticketMedio: 2000, leadsPorSDR: 750, atPorCloser: 90 };
+    const fmtBRL = (v) => new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v||0);
+    function compute(s){ const leads=Math.floor(s.investimento/(s.precoPorLead||1)); const ag=Math.floor(leads*(s.taxaAgendamento/100)); const rl=Math.floor(ag*(s.taxaComparecimento/100)); const vd=Math.floor(rl*(s.taxaConversao/100)); const fat=vd*s.ticketMedio; const cpc=rl>0?s.investimento/rl:0; const cac=vd>0?s.investimento/vd:0; const roas=s.investimento>0?fat/s.investimento:0; const sdr=Math.max(0,Math.ceil(leads/s.leadsPorSDR)); const cls=Math.max(0,Math.ceil(rl/s.atPorCloser)); return {leads,agendadas:ag,realizadas:rl,vendas:vd,faturamento:fat,custoPorCall:cpc,cac,roas,numSDRs:sdr,numClosers:cls}; }
+    function bind(rId,nId,dId,key){ const r=document.getElementById(rId), n=document.getElementById(nId), d=document.getElementById(dId); const isMoney=/invest|cpl|ticket/.test(key), isPct=key.includes('taxa'); const refresh=()=>{ r.value=state[key]; n.value=state[key]; d.value=isMoney?fmtBRL(state[key]):(isPct?state[key]+'%':state[key]); render(); }; r.addEventListener('input',()=>{state[key]=+r.value;refresh();}); n.addEventListener('input',()=>{state[key]=+n.value||0;refresh();}); refresh(); }
+    function render(){ const c=compute(state); document.getElementById('kpi-revenue').textContent=fmtBRL(c.faturamento); document.getElementById('kpi-sales').textContent=c.vendas; document.getElementById('kpi-cpcall').textContent=fmtBRL(c.custoPorCall); document.getElementById('kpi-cac').textContent=fmtBRL(c.cac); document.getElementById('kpi-roas').textContent=(c.roas||0).toFixed(2); document.getElementById('kpi-sdrs').textContent=c.numSDRs; document.getElementById('kpi-closers').textContent=c.numClosers; const ex=document.getElementById('explain'); ex.innerHTML=''; const add=(t)=>{const li=document.createElement('li'); li.innerHTML=t; ex.appendChild(li);}; add(`Leads = Investimento ÷ CPL = <b>${fmtBRL(state.investimento)}</b> ÷ <b>${fmtBRL(state.precoPorLead)}</b> = <b>${c.leads}</b>`); add(`Agendadas = Leads × ${state.taxaAgendamento}% = <b>${c.agendadas}</b>`); add(`Realizadas = Agendadas × ${state.taxaComparecimento}% = <b>${c.realizadas}</b>`); add(`Vendas = Realizadas × ${state.taxaConversao}% = <b>${c.vendas}</b>`); }
+    bind('range-invest','num-invest','display-invest','investimento'); bind('range-cpl','num-cpl','display-cpl','precoPorLead'); bind('range-schedule','num-schedule','display-schedule','taxaAgendamento'); bind('range-show','num-show','display-show','taxaComparecimento'); bind('range-close','num-close','display-close','taxaConversao'); bind('range-ticket','num-ticket','display-ticket','ticketMedio');
+  </script>
 </body>
 </html>
