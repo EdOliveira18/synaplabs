@@ -6,16 +6,8 @@
   <title>Royal Mind – Calculadora de Faturamento</title>
   <meta name="description" content="Simule o faturamento com o Sistema Royal Mind. Sliders 0–100%, cálculos corretos e resultados em tempo real." />
   <style>
-    :root{
-      /* Troca do VERDE para DOURADO ROYAL (mantendo os mesmos nomes pra não quebrar nada) */
-      --green-50:#fff8e1;   /* dourado bem claro */
-      --green-300:#e6c200;  /* dourado médio */
-      --green-600:#c5a000;  /* dourado principal */
-      --green-700:#8c6b00;  /* dourado escuro premium */
-
-      --text:#0a0a0a; --muted:#6b7280; --border:#e5e7eb; --bg:#fafafa; --card:#fff;
-      --shadow:0 1px 2px rgba(0,0,0,.04); --radius:16px;
-    }
+    :root{ --green-50:#fff8e1; --green-300:#e6c200;  --green-600:#c5a000; --green-700:#8c6b00;
+           --text:#0a0a0a; --muted:#6b7280; --border:#e5e7eb; --bg:#fafafa; --card:#fff; --shadow:0 1px 2px rgba(0,0,0,.04); --radius:16px; }
     *{box-sizing:border-box} html,body{height:100%} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--text)}
     .container{max-width:1120px;margin:0 auto;padding:28px 16px}
     header h1{margin:0 0 6px;font-size:28px;line-height:1.2;color:var(--green-700)}
@@ -28,9 +20,9 @@
     .minmax{margin-top:6px;display:flex;justify-content:space-between;font-size:11px;color:#9ca3af}
     .results-head{display:inline-block;border:2px dashed var(--green-300);background:var(--green-50);color:var(--green-700);padding:6px 10px;border-radius:10px;font-size:13px;font-weight:800;margin-bottom:12px}
     .kpis{display:grid;grid-template-columns:1fr;gap:12px} @media(min-width:640px){.kpis{grid-template-columns:1fr 1fr}}
-    .kpi{background:var(--green-700);color:#fff;border-radius:14px;padding:18px} .kpi .k{font-size:13px;opacity:.95} .kpi .v{font-size:28px;font-weight:900;line-height:1.2;letter-spacing:-0.3px} .kpi .hint{color:#fff3b0}
+    .kpi{background:var(--green-700);color:#fff;border-radius:14px;padding:18px} .kpi .k{font-size:13px;opacity:.95} .kpi .v{font-size:28px;font-weight:900;line-height:1.2;letter-spacing:-0.3px} .kpi .hint{color:#d1fae5}
     .list{color:#374151;font-size:14px} .cta{display:inline-flex;justify-content:center;align-items:center;width:100%;padding:14px 18px;background:var(--green-600);color:#fff;border-radius:12px;text-decoration:none;font-weight:800}
-    .cta:hover{background:#b08f00} .footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
+    .cta:hover{background:#128035} .footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
   </style>
 </head>
 <body>
